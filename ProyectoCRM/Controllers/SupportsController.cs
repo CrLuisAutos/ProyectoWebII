@@ -44,9 +44,11 @@ namespace ProyectoCRM.Controllers
             return View();
         }
 
-        // POST: Supports/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permite crear un ticket
+        /// </summary>
+        /// <param name="support">Ticket a crear</param>
+        /// <returns>Redirecciona a la vista index</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,id_cliente,titulo,detalle,estado,id_user")] Support support)
@@ -80,9 +82,11 @@ namespace ProyectoCRM.Controllers
             return View(support);
         }
 
-        // POST: Supports/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+       /// <summary>
+       /// Permite editar un ticket
+       /// </summary>
+       /// <param name="support">Ticket a editar</param>
+       /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,id_cliente,titulo,detalle,estado,id_user")] Support support)
@@ -98,7 +102,11 @@ namespace ProyectoCRM.Controllers
             return View(support);
         }
 
-        // GET: Supports/Delete/5
+        /// <summary>
+        /// Permite eliminar Tickets
+        /// </summary>
+        /// <param name="id">Ticket a eliminar</param>
+        /// <returns></returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -113,7 +121,11 @@ namespace ProyectoCRM.Controllers
             return View(support);
         }
 
-        // POST: Supports/Delete/5
+        /// <summary>
+        /// Confirmacion de eliminar
+        /// </summary>
+        /// <param name="id">Ticket a eliminar</param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
