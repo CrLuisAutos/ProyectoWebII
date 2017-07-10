@@ -10,7 +10,6 @@ using ProyectoCRM.Models;
 
 namespace ProyectoCRM.Controllers
 {
-    [Authorize]
     public class SupportsController : Controller
     {
         private CRMDB db = new CRMDB();

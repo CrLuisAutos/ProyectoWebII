@@ -29,7 +29,6 @@ namespace ProyectoCRM.Controllers
             if (usr != null)
             {
                 FormsAuthentication.SetAuthCookie(usr.UserName, false);
-                await SignInManager.SignInAsync(usr.UserName, isPersistent: false, rememberBrowser: false);
                 Session["UserId"] = usr.Id.ToString();
                 Session["Email"] = usr.Email.ToString();
                 return RedirectToAction("Index", "Home", new { area = "" });

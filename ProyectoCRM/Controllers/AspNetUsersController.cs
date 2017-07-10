@@ -16,7 +16,6 @@ namespace ProyectoCRM.Controllers
         private CRMDB db = new CRMDB();
 
         // GET: AspNetUsers
-        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.AspNetUsers.ToList());
