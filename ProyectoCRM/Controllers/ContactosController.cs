@@ -43,9 +43,11 @@ namespace ProyectoCRM.Controllers
             return View();
         }
 
-        // POST: Contactos/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permite crear contactos
+        /// </summary>
+        /// <param name="contacto">Contacto a creado</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,id_cliente,nombre,apellido,correo,telefono,puesto")] Contacto contacto)
@@ -77,9 +79,11 @@ namespace ProyectoCRM.Controllers
             return View(contacto);
         }
 
-        // POST: Contactos/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+       /// <summary>
+       /// Permite editar un contacto
+       /// </summary>
+       /// <param name="contacto">Cotacto editado</param>
+       /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,id_cliente,nombre,apellido,correo,telefono,puesto")] Contacto contacto)
@@ -109,7 +113,11 @@ namespace ProyectoCRM.Controllers
             return View(contacto);
         }
 
-        // POST: Contactos/Delete/5
+        /// <summary>
+        /// Confirmacion de eliminacion
+        /// </summary>
+        /// <param name="id">Id del contacto</param>
+        /// <returns></returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

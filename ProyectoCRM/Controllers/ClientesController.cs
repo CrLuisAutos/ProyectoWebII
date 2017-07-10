@@ -78,7 +78,7 @@ namespace ProyectoCRM.Controllers
         /// <summary>
         /// Permite editar usuarios
         /// </summary>
-        /// <param name="cliente"></param>
+        /// <param name="cliente">Cliente a editar</param>
         /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -107,7 +107,11 @@ namespace ProyectoCRM.Controllers
             }
             return View(cliente);
         }
-
+        /// <summary>
+        /// Permite eliminar un usuario
+        /// </summary>
+        /// <param name="id">Id del usuario</param>
+        /// <returns></returns>
         // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

@@ -18,7 +18,6 @@ namespace ProyectoCRM.Models
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Contacto> Contacto { get; set; }
         public virtual DbSet<Reunion> Reunion { get; set; }
-        public virtual DbSet<Reunion_user> Reunion_user { get; set; }
         public virtual DbSet<Support> Support { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -40,11 +39,6 @@ namespace ProyectoCRM.Models
                 .WithRequired(e => e.AspNetUsers)
                 .HasForeignKey(e => e.id_user)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<AspNetUsers>()
-                .HasMany(e => e.Reunion_user)
-                .WithRequired(e => e.AspNetUsers)
-                .HasForeignKey(e => e.id_user);
 
             modelBuilder.Entity<Cliente>()
                 .Property(e => e.nombre)
@@ -70,12 +64,7 @@ namespace ProyectoCRM.Models
                 .WithRequired(e => e.Cliente)
                 .HasForeignKey(e => e.id_cliente)
                 .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<Cliente>()
-                .HasMany(e => e.Reunion_user)
-                .WithOptional(e => e.Cliente)
-                .HasForeignKey(e => e.id_cliente)
-                .WillCascadeOnDelete();
+      
 
             modelBuilder.Entity<Cliente>()
                 .HasMany(e => e.Support)
@@ -102,12 +91,6 @@ namespace ProyectoCRM.Models
             modelBuilder.Entity<Reunion>()
                 .Property(e => e.titulo)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Reunion>()
-                .HasMany(e => e.Reunion_user)
-                .WithRequired(e => e.Reunion)
-                .HasForeignKey(e => e.id_reunion)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Support>()
                 .Property(e => e.titulo)

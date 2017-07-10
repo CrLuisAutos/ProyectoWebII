@@ -219,7 +219,6 @@
     <Compile Include="Models\CRMDB.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Reunion.cs" />
-    <Compile Include="Models\Reunion_user.cs" />
     <Compile Include="Models\Support.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

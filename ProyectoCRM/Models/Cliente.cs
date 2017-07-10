@@ -14,7 +14,6 @@ namespace ProyectoCRM.Models
         public Cliente()
         {
             Contacto = new HashSet<Contacto>();
-            Reunion_user = new HashSet<Reunion_user>();
             Support = new HashSet<Support>();
         }
 
@@ -54,7 +53,7 @@ namespace ProyectoCRM.Models
         public virtual ICollection<Contacto> Contacto { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reunion_user> Reunion_user { get; set; }
+        public virtual ICollection<Reunion> Reunion_user { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Support> Support { get; set; }

@@ -12,7 +12,6 @@ namespace ProyectoCRM.Controllers
     public class AccountController : Controller
     {
         CRMDB db = new CRMDB();
-        // GET: Account
         public ActionResult Index()
         {
             return View(db.AspNetUsers.ToList());
@@ -21,7 +20,11 @@ namespace ProyectoCRM.Controllers
         {
             return View();
         }
-
+        /// <summary>
+        /// Se comparan los credenciales del usuario y se crea la sesion
+        /// </summary>
+        /// <param name="users">Usuarios del sistema</param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult Login(AspNetUsers users)
         {
@@ -40,7 +43,10 @@ namespace ProyectoCRM.Controllers
             }
             return View();
         }
-        
+        /// <summary>
+        /// Se cierra la sesion
+        /// </summary>
+        /// <returns>Redirecciona a la página del login</returns>
         public ActionResult LogOut()
         {
             Session.Clear();

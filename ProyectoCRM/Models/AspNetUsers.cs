@@ -14,7 +14,6 @@ namespace ProyectoCRM.Models
         {
             AspNetUserRoles = new HashSet<AspNetUserRoles>();
             Support = new HashSet<Support>();
-            Reunion_user = new HashSet<Reunion_user>();
         }
 
         [StringLength(100)]
@@ -48,8 +47,7 @@ namespace ProyectoCRM.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Support> Support { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reunion_user> Reunion_user { get; set; }
+        
+        
     }
 }

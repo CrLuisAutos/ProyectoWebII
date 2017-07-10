@@ -2,6 +2,7 @@ namespace ProyectoCRM.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -9,24 +10,27 @@ namespace ProyectoCRM.Models
     [Table("Reunion")]
     public partial class Reunion
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Reunion()
-        {
-            Reunion_user = new HashSet<Reunion_user>();
-        }
 
         public int id { get; set; }
 
         [Required]
         [StringLength(20)]
+        [DisplayName("Título")]
         public string titulo { get; set; }
 
+        [DisplayName("Fecha")]
+        [Required]
         public DateTime fecha { get; set; }
 
+        [DisplayName("¿Es virtual?")]
         [Column("virtual")]
         public bool _virtual { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reunion_user> Reunion_user { get; set; }
+        public ICollection<Cliente> ListCliente;
+
+        public ICollection<AspNetUsers> ListUsuario;
+        public virtual Cliente cliente { get; set; }
+        public virtual AspNetUsers usuarios { get; set; }
+
     }
 }
