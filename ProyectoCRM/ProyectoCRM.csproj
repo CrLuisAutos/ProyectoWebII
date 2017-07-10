@@ -202,6 +202,7 @@
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContactosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReunionController.cs" />
     <Compile Include="Controllers\SupportsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -289,6 +290,11 @@
     <Content Include="Views\Supports\Index.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\LoggedIn.cshtml" />
+    <Content Include="Views\Reunion\Create.cshtml" />
+    <Content Include="Views\Reunion\Delete.cshtml" />
+    <Content Include="Views\Reunion\Details.cshtml" />
+    <Content Include="Views\Reunion\Edit.cshtml" />
+    <Content Include="Views\Reunion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
