@@ -33,6 +33,12 @@ namespace ProyectoCRM.Models
                 .WithRequired(e => e.AspNetUsers)
                 .HasForeignKey(e => e.UserId)
                 .WillCascadeOnDelete(false);
+            //nueva
+            modelBuilder.Entity<AspNetUsers>()
+                .HasMany(e => e.Reunion)
+                .WithRequired(e => e.usuarios)
+                .HasForeignKey(e => e.id_user)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<AspNetUsers>()
                 .HasMany(e => e.Support)
@@ -43,6 +49,12 @@ namespace ProyectoCRM.Models
             modelBuilder.Entity<Cliente>()
                 .Property(e => e.nombre)
                 .IsUnicode(false);
+            //nueva
+            modelBuilder.Entity<Cliente>()
+               .HasMany(e => e.Reunion)
+               .WithRequired(e => e.cliente)
+               .HasForeignKey(e => e.id_cliente)
+               .WillCascadeOnDelete(false);
 
 
             modelBuilder.Entity<Cliente>()

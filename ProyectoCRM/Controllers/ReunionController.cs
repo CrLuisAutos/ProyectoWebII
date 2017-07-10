@@ -17,7 +17,8 @@ namespace ProyectoCRM.Controllers
         // GET: Reunion
         public ActionResult Index()
         {
-            return View(db.Reunion.ToList());
+            var reunion = db.Reunion.Include(r => r.cliente).Include(r => r.usuarios);
+            return View(reunion.ToList());
         }
 
         // GET: Reunion/Details/5
@@ -38,6 +39,8 @@ namespace ProyectoCRM.Controllers
         // GET: Reunion/Create
         public ActionResult Create()
         {
+            ViewBag.id_cliente = new SelectList(db.Cliente, "id", "nombre");
+            ViewBag.id_user = new SelectList(db.AspNetUsers, "Id", "Email");
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace ProyectoCRM.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,titulo,fecha,_virtual")] Reunion reunion)
+        public ActionResult Create([Bind(Include = "id,id_user,id_cliente,titulo,fecha,_virtual")] Reunion reunion)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +58,8 @@ namespace ProyectoCRM.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.id_cliente = new SelectList(db.Cliente, "id", "nombre", reunion.id_cliente);
+            ViewBag.id_user = new SelectList(db.AspNetUsers, "Id", "Email", reunion.id_user);
             return View(reunion);
         }
 
@@ -70,6 +75,8 @@ namespace ProyectoCRM.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.id_cliente = new SelectList(db.Cliente, "id", "nombre", reunion.id_cliente);
+            ViewBag.id_user = new SelectList(db.AspNetUsers, "Id", "Email", reunion.id_user);
             return View(reunion);
         }
 
@@ -78,7 +85,7 @@ namespace ProyectoCRM.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,titulo,fecha,_virtual")] Reunion reunion)
+        public ActionResult Edit([Bind(Include = "id,id_user,id_cliente,titulo,fecha,_virtual")] Reunion reunion)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +93,8 @@ namespace ProyectoCRM.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.id_cliente = new SelectList(db.Cliente, "id", "nombre", reunion.id_cliente);
+            ViewBag.id_user = new SelectList(db.AspNetUsers, "Id", "Email", reunion.id_user);
             return View(reunion);
         }
 

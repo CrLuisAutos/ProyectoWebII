@@ -12,6 +12,8 @@ namespace ProyectoCRM.Models
     {
 
         public int id { get; set; }
+        public int id_user { get; set; }
+        public int id_cliente { get; set; }
 
         [Required]
         [StringLength(20)]
@@ -20,6 +22,8 @@ namespace ProyectoCRM.Models
 
         [DisplayName("Fecha")]
         [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
         public DateTime fecha { get; set; }
 
         [DisplayName("¿Es virtual?")]
@@ -29,6 +33,7 @@ namespace ProyectoCRM.Models
         public ICollection<Cliente> ListCliente;
 
         public ICollection<AspNetUsers> ListUsuario;
+
         public virtual Cliente cliente { get; set; }
         public virtual AspNetUsers usuarios { get; set; }
 

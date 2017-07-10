@@ -53,7 +53,7 @@ namespace ProyectoCRM.Models
         public virtual ICollection<Contacto> Contacto { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Reunion> Reunion_user { get; set; }
+        public virtual ICollection<Reunion> Reunion { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Support> Support { get; set; }
