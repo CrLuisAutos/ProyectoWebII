@@ -31,11 +31,9 @@ namespace ProyectoCRM.Controllers
             var usr = db.AspNetUsers.Where(u => u.Email == users.Email && u.PasswordHash == users.PasswordHash).FirstOrDefault();
             if (usr != null)
             {
-                FormsAuthentication.SetAuthCookie(usr.UserName, false);
-                Session["UserId"] = usr.Id.ToString();
-                Session["Email"] = usr.Email.ToString();
-                return RedirectToAction("Index", "Home", new { area = "" });
-
+                    Session["UserId"] = usr.Id.ToString();
+                    Session["Email"] = usr.Email.ToString();
+                    return RedirectToAction("Index", "Home", new { area = "" });
             }
             else
             {
