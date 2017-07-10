@@ -41,9 +41,11 @@ namespace ProyectoCRM.Controllers
             return View();
         }
 
-        // POST: Clientes/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permite crear un cliente
+        /// </summary>
+        /// <param name="cliente">Id del cliente</param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,nombre,cedula,pagina_web,direccion,telefono,sector")] Cliente cliente)
@@ -73,9 +75,11 @@ namespace ProyectoCRM.Controllers
             return View(cliente);
         }
 
-        // POST: Clientes/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permite editar usuarios
+        /// </summary>
+        /// <param name="cliente"></param>
+        /// <returns></returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "id,nombre,cedula,pagina_web,direccion,telefono,sector")] Cliente cliente)

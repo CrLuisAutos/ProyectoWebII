@@ -14,13 +14,20 @@ namespace ProyectoCRM.Controllers
     public class AspNetUsersController : Controller
     {
         private CRMDB db = new CRMDB();
-
+        /// <summary>
+        /// Lista de usuarios del sistema
+        /// </summary>
+        /// <returns></returns>
         // GET: AspNetUsers
         public ActionResult Index()
         {
             return View(db.AspNetUsers.ToList());
         }
-
+        /// <summary>
+        /// Muestra las caracteristicas del usuario
+        /// </summary>
+        /// <param name="id">Id del usuario</param>
+        /// <returns></returns>
         // GET: AspNetUsers/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,7 +42,10 @@ namespace ProyectoCRM.Controllers
             }
             return View(aspNetUsers);
         }
-
+        /// <summary>
+        /// Permite crear el usuario
+        /// </summary>
+        /// <returns></returns>
         // GET: AspNetUsers/Create
         public ActionResult Create()
         {
@@ -59,6 +69,7 @@ namespace ProyectoCRM.Controllers
 
             return View(aspNetUsers);
         }
+      
 
         // GET: AspNetUsers/Edit/5
         public ActionResult Edit(int? id)
@@ -75,9 +86,12 @@ namespace ProyectoCRM.Controllers
             return View(aspNetUsers);
         }
 
-        // POST: AspNetUsers/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permite editar un usuario
+        /// </summary>
+        /// <param name="id">Id del usuario</param>
+        /// <returns></returns>
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,PasswordHash,UserName,Nombre,Apellido")] AspNetUsers aspNetUsers)
@@ -106,7 +120,11 @@ namespace ProyectoCRM.Controllers
             }
             return View(aspNetUsers);
         }
-
+        /// <summary>
+        /// Permite eliminar un usuario
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // POST: AspNetUsers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
