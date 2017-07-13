@@ -44,9 +44,11 @@ namespace ProyectoCRM.Controllers
             return View();
         }
 
-        // POST: Reunion/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
-        // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permite crear una reunion
+        /// </summary>
+        /// <param name="reunion">Propiedades de la reunion</param>
+        /// <returns>Vista</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "id,id_user,id_cliente,titulo,fecha,_virtual")] Reunion reunion)

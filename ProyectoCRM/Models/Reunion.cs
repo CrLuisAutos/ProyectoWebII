@@ -22,8 +22,8 @@ namespace ProyectoCRM.Models
 
         [DisplayName("Fecha")]
         [Required]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy}", ApplyFormatInEditMode =true)]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString ="{0:dd/MM/yyyy hh:mm tt}", ApplyFormatInEditMode =true)]
         public DateTime fecha { get; set; }
 
         [DisplayName("¿Es virtual?")]

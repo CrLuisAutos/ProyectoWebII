@@ -31,9 +31,14 @@ namespace ProyectoCRM.Controllers
             var usr = db.AspNetUsers.Where(u => u.Email == users.Email && u.PasswordHash == users.PasswordHash).FirstOrDefault();
             if (usr != null)
             {
+               int idRole= db.AspNetUserRoles.Where(u => u.UserId == usr.Id).FirstOrDefault().RoleId;
+               string role = db.AspNetRoles.Where(u=>u.Id==idRole).FirstOrDefault().Name;
+               
                     Session["UserId"] = usr.Id.ToString();
                     Session["Email"] = usr.Email.ToString();
-                    return RedirectToAction("Index", "Home", new { area = "" });
+                    Session["Email"] = usr.Email.ToString();
+                bool aut = User.Identity.IsAuthenticated;
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
             else
             {
