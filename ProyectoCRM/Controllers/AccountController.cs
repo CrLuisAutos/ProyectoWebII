@@ -31,13 +31,19 @@ namespace ProyectoCRM.Controllers
             var usr = db.AspNetUsers.Where(u => u.Email == users.Email && u.PasswordHash == users.PasswordHash).FirstOrDefault();
             if (usr != null)
             {
-               int idRole= db.AspNetUserRoles.Where(u => u.UserId == usr.Id).FirstOrDefault().RoleId;
-               string role = db.AspNetRoles.Where(u=>u.Id==idRole).FirstOrDefault().Name;
+                try
+                {
+                    int idRole = db.AspNetUserRoles.Where(u => u.UserId == usr.Id).FirstOrDefault().RoleId;
+                    string role = db.AspNetRoles.Where(u => u.Id == idRole).FirstOrDefault().Name;
+                    Session["rol"] = role;
+                }
+                catch (Exception ex)
+                {
+                    Session["rol"] = null;
+                }
+                Session["UserId"] = usr.Id.ToString();
+                Session["Email"] = usr.Email.ToString();
                
-                    Session["UserId"] = usr.Id.ToString();
-                    Session["Email"] = usr.Email.ToString();
-                    Session["Email"] = usr.Email.ToString();
-                bool aut = User.Identity.IsAuthenticated;
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             else
@@ -54,7 +60,6 @@ namespace ProyectoCRM.Controllers
         {
             Session.Clear();
             Session.Abandon();
-            FormsAuthentication.SignOut();
             return RedirectToAction("Login");
         }
         

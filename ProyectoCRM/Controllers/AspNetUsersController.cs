@@ -13,6 +13,8 @@ namespace ProyectoCRM.Controllers
     
     public class AspNetUsersController : Controller
     {
+
+
         private CRMDB db = new CRMDB();
         /// <summary>
         /// Lista de usuarios del sistema
